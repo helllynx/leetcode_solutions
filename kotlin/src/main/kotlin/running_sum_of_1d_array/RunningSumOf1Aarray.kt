@@ -19,8 +19,6 @@ class Solution {
 }
 
 fun main() {
-    val words = arrayOf(1)
-
-    val solution = Solution()
-    solution.runningSum(words.toIntArray())
+    val nums = arrayOf(1)
+    Solution().runningSum(nums.toIntArray())
 }

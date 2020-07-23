@@ -1,3 +1,4 @@
+//https://leetcode.com/problems/summary-ranges/
 package summary_ranges
 
 class Solution {
@@ -13,10 +14,7 @@ class Solution {
     }
 }
 
-
 fun main() {
-    val words = arrayOf(0, 1, 2, 4, 5, 7)
-
-    val solution = Solution()
-    solution.summaryRanges(words.toIntArray())
+    val nums = arrayOf(0, 1, 2, 4, 5, 7)
+    Solution().summaryRanges(nums.toIntArray())
 }
