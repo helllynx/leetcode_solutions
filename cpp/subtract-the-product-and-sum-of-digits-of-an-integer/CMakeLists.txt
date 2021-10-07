@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.17)
+project(subtract_the_product_and_sum_of_digits_of_an_integer)
+
+set(CMAKE_CXX_STANDARD 20)
+
+add_executable(subtract_the_product_and_sum_of_digits_of_an_integer main.cpp)
