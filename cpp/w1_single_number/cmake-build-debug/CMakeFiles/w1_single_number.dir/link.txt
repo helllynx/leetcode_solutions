@@ -1,1 +1,0 @@
-/usr/bin/c++  -g   CMakeFiles/w1_single_number.dir/main.cpp.o  -o w1_single_number 
