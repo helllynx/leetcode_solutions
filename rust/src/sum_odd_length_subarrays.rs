@@ -1,8 +1,12 @@
 // https://leetcode.com/problems/sum-of-all-odd-length-subarrays/
 
 pub fn sum_odd_length_subarrays(arr: Vec<i32>) -> i32 {
+    if arr.len() == 1 {
+        return arr[0];
+    }
+
     let mut sum: i32 = 0;
-    sum+=arr.iter().fold(0i32, |sum, i| sum + (*i as i32));;
+    sum += arr.iter().fold(0i32, |sum, i| sum + (*i as i32));
 
     return sum;
 }
@@ -14,8 +18,13 @@ mod tests {
 
     #[test]
     fn it_works() {
-        assert_eq!(sum_odd_length_subarrays(vec![1,4,2,5,3]), 15);
+        assert_eq!(sum_odd_length_subarrays(vec![1, 4, 2, 5, 3]), 15);
         assert_eq!(sum_odd_length_subarrays(vec![1, 2]), 3);
         assert_eq!(sum_odd_length_subarrays(vec![10, 11, 12]), 66);
+        assert_eq!(sum_odd_length_subarrays(vec![1]), 1);
+        assert_eq!(sum_odd_length_subarrays(vec![1, 4, 2]), 7);
+        assert_eq!(sum_odd_length_subarrays(vec![4, 2, 5]), 11);
+        assert_eq!(sum_odd_length_subarrays(vec![2, 5, 3]), 10);
+        assert_eq!(sum_odd_length_subarrays(vec![1, 4, 2, 5, 3]), 15);
     }
 }
