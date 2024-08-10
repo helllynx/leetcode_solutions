@@ -3,19 +3,24 @@ package jewels_and_stones
 
 class Solution {
     fun numJewelsInStones(jewels: String, stones: String): Int {
-        val jewelsElements = jewels.toList()
         var count = 0
+        val stoneList = stones.toMutableList()
 
-        stones.forEach { stone ->
-            if (jewelsElements.contains(stone)) {
-                count += 1
+        jewels.forEach { jewel ->
+            val iterator = stoneList.iterator()
+            println(stoneList)
+            while (iterator.hasNext()) {
+                val stone = iterator.next()
+                if (jewel == stone) {
+                    count += 1
+                    iterator.remove()
+                }
             }
         }
 
         return count
     }
 }
-
 fun main() {
     val solution = Solution()
 
@@ -27,12 +32,12 @@ fun example1(solution: Solution) {
     val jewels = "aA"
     val stones = "aAAbbbb"
 
-    assert(solution.numJewelsInStones(jewels, stones) == 0)
+    require(solution.numJewelsInStones(jewels, stones) == 3)
 }
 
 fun example2(solution: Solution) {
     val jewels = "z"
     val stones = "ZZ"
 
-    assert(solution.numJewelsInStones(jewels, stones) == 0)
+    require(solution.numJewelsInStones(jewels, stones) == 0)
 }
