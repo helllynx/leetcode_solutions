@@ -13,6 +13,25 @@ class Solution {
         }
     }
 
+    // Runtime: 173 ms, faster than 57.50% Memory Usage: 35.1 MB, less than 83.75%
+//    fun quadrantRotate(matrix: Array<IntArray>, offset: Int, n: Int) {
+//        for (row in offset until n - offset) {
+//            // Store the first element in a temp variable
+//            val temp1 = matrix[offset][row]
+//            // Move the element from the right to the top
+//            matrix[offset][row] = matrix[n - row][offset]
+//            // Move the element from the bottom to the right
+//            val temp2 = matrix[row][n - offset]
+//            matrix[row][n - offset] = temp1
+//            // Move the element from the left to the bottom
+//            matrix[n - row][offset] = matrix[n - offset][n - row]
+//            // Finally, move the stored left element to the left
+//            matrix[n - offset][n - row] = temp2
+//        }
+//    }
+
+    // Strange but dumb way is better...
+    // Runtime: 168 ms, faster than 68.75% Memory Usage: 35 MB, less than 92.25%
     fun quadrantRotate(matrix: Array<IntArray>, offset: Int, n: Int) {
         for (row in offset until n - offset) {
             val first = matrix[offset][row]
@@ -23,10 +42,7 @@ class Solution {
             matrix[n - offset][n - row] = second //$second -> $third;
             matrix[n - row][offset] = third //$third -> $forth;
             matrix[offset][row] = forth //$forth -> $first
-//            println("row $row, offset $offset# $first -> $second; $second -> $third; $third -> $forth; $forth -> $first")
-//            println("row $row, offset $offset# $first $second $third $forth")
         }
-
     }
 }
 
@@ -56,7 +72,7 @@ fun example1(solution: Solution) {
     println("Example 1")
     println("Input after\n${input.toFormattedString()}")
     println("Expected result\n${output.toFormattedString()}")
-    require(input.contentEquals(output))
+    require(input.contentDeepEquals(output))
 }
 
 fun example2(solution: Solution) {
